@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/logo.jpg",
   },
+  openGraph: {
+    title: "Ripple & Grind Cafe",
+    description: "Specialty coffee, house-made pastries, and locally sourced food in Taylors Falls, MN.",
+    images: [{ url: "/images/logo.jpg", width: 400, height: 400, alt: "Ripple & Grind Cafe logo" }],
+  },
 };
 
 export default function RootLayout({
