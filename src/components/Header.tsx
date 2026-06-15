@@ -14,7 +14,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-cream border-b border-cream-dark shadow-sm">
+    <header className="sticky top-0 z-50">
+      <div className="bg-cream border-b border-cream-dark shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo + wordmark */}
         <Link href="/" className="flex items-center gap-2 group">
@@ -63,10 +64,11 @@ export default function Header() {
           <span className="block w-5 h-0.5 bg-current" />
         </button>
       </div>
+      </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — absolutely positioned so it overlaps content */}
       {mobileOpen && (
-        <div className="md:hidden bg-cream border-t border-cream-dark px-4 pb-4 pt-2 flex flex-col gap-3">
+        <div className="md:hidden absolute left-0 right-0 bg-cream border-t border-cream-dark shadow-md px-4 pb-4 pt-2 flex flex-col gap-3">
           {navLinks.map((link) => (
             <Link
               key={link.href}

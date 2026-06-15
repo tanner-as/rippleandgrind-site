@@ -39,8 +39,8 @@ export default function HomePage() {
             Good coffee,<br />great river views.
           </h1>
           <p className="text-lg sm:text-xl mb-8 max-w-lg text-[#6B3B1A]">
-            Specialty coffee, house-made pastries, and locally sourced food in the
-            heart of Taylors Falls, MN.
+            Specialty coffee, house-made pastries, and locally sourced food.
+            Open year-round in Taylors Falls, MN.
           </p>
           <div className="flex flex-wrap gap-4">
             {/* TODO: wire to Square Online ordering URL */}

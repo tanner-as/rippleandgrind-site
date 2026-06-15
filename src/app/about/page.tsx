@@ -9,8 +9,8 @@ export default function AboutPage() {
           About Us
         </h1>
         <p className="text-muted text-lg max-w-2xl">
-          Ripple &amp; Grind started as a love letter to Taylors Falls — its river, its rock
-          formations, and the community that calls it home.
+          Ripple &amp; Grind started as a love letter to Taylors Falls. The river, the rock
+          formations, the community that calls it home.
         </p>
       </div>
 
@@ -32,16 +32,15 @@ export default function AboutPage() {
       <div className="prose prose-lg max-w-none text-ink space-y-5 mb-16">
         <p>
           Ripple &amp; Grind is a family-run cafe that took root in a space with longtime ties to
-          this community. We opened because we believed Taylors Falls — a river town with a lot of
-          heart — deserved a coffee shop that stays open year-round, not just when the tourists
-          arrive. Our goal from day one has been to be a real local staple: somewhere you can start
-          your morning, linger on a slow afternoon, and always feel welcome.
+          this community. We opened because Taylors Falls, a river town with a lot of heart,
+          deserved a coffee shop that stays open year-round. Not just when the tourists arrive.
+          The goal from day one: be the place locals actually come back to.
         </p>
         <p>
           We work with regional roasters and source our ingredients from nearby farms when the
           seasons allow. Everything on the menu is something we&apos;d order ourselves. More than
-          anything, we want this to be the kind of place you come back to every week — for the
-          coffee, yes, but also because it just feels good to be here.
+          anything, we want this to be the kind of place you come back to every week. For the
+          coffee, sure. Mostly because it just feels good to be here.
         </p>
       </div>
 

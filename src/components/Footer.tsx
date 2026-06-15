@@ -3,12 +3,12 @@ import TopoBackground from "@/components/TopoBackground";
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-brand-brown-dark text-cream">
-      <TopoBackground id="topo-footer" stroke="rgba(250,246,239,0.16)" />
+      <TopoBackground id="topo-footer" stroke="rgba(250,246,239,0.07)" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
         {/* Brand */}
         <div>
           <p className="font-serif text-lg font-bold mb-2">Ripple &amp; Grind Cafe</p>
-          <p className="text-sm text-cream/70">A river-town cafe in the heart of Taylors Falls, MN.</p>
+          <p className="text-sm text-cream/70">A river-town cafe in Taylors Falls, MN.</p>
         </div>
 
         {/* Hours & Location */}

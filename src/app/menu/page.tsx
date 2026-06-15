@@ -40,7 +40,7 @@ export default function MenuPage() {
           Mon &amp; Thu–Fri 9–4 · Tue, Sat &amp; Sun 9–3 · Wed closed
         </p>
         <p className="text-sm text-muted mt-2">
-          Pricing available in store and when you order online.
+          Prices at the register and online.
         </p>
       </div>
 

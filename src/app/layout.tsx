@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ripple & Grind Cafe — Taylors Falls, MN",
+  title: "Ripple & Grind Cafe, Taylors Falls MN",
   description:
     "A cozy river-town cafe in Taylors Falls, MN. Specialty coffee, house-made pastries, and locally sourced food.",
   icons: {
