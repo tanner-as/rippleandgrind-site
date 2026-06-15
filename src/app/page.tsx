@@ -1,65 +1,138 @@
 import Image from "next/image";
+import TopoBackground from "@/components/TopoBackground";
 
-export default function Home() {
+function RippleDivider({ id }: { id: string }) {
+  const patternId = `ripple-${id}`;
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <svg
+      aria-hidden="true"
+      style={{ width: "100%", height: "14px", display: "block" }}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern id={patternId} x="0" y="0" width="120" height="14" patternUnits="userSpaceOnUse">
+          <path
+            d="M0,7 C20,2.5 40,2.5 60,7 C80,11.5 100,11.5 120,7"
+            stroke="#A0522D"
+            strokeOpacity="0.22"
+            strokeWidth="1.2"
+            fill="none"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="14" fill={`url(#${patternId})`} />
+    </svg>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <>
+      {/* Hero — type and color only, no photograph */}
+      <section className="relative overflow-hidden h-[70vh] min-h-[420px] flex items-center bg-gradient-to-b from-cream-dark to-[#c9b494]">
+        <TopoBackground id="topo-hero" stroke="rgba(107,68,35,0.16)" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14">
+          <h1
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-[#2c1503]"
+            style={{ textShadow: "0 2px 8px rgba(44,21,3,0.20)" }}
+          >
+            Good coffee,<br />great river views.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg sm:text-xl mb-8 max-w-lg text-[#6B3B1A]">
+            Specialty coffee, house-made pastries, and locally sourced food in the
+            heart of Taylors Falls, MN.
           </p>
+          <div className="flex flex-wrap gap-4">
+            {/* TODO: wire to Square Online ordering URL */}
+            <a
+              href="#order"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-teal text-cream font-semibold text-base hover:bg-teal-dark transition-colors"
+            >
+              Order Online
+            </a>
+            <a
+              href="/menu"
+              className="inline-flex items-center px-6 py-3 rounded-full border-2 border-[#2c1503] text-[#2c1503] font-semibold text-base hover:bg-[#2c1503]/8 transition-colors"
+            >
+              View Menu
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <RippleDivider id="a" />
+
+      {/* Feature trio */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {[
+          { src: "/images/food-1.jpg", alt: "Chicken and waffle", label: "House-made food" },
+          { src: "/images/coffee-1.jpg", alt: "Iced latte", label: "Specialty coffee" },
+          { src: "/images/coffee-2.jpg", alt: "Matcha latte in the cafe", label: "Stay a while" },
+        ].map(({ src, alt, label }) => (
+          <div key={src} className="group flex flex-col gap-3">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-cream-dark">
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <p className="font-serif text-lg font-semibold text-brand-brown-dark">{label}</p>
+          </div>
+        ))}
+      </section>
+
+      <RippleDivider id="b" />
+
+      {/* Visit Us */}
+      <section className="bg-cream-dark">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brand-brown-dark mb-10">
+            Visit Us
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-serif text-lg font-semibold text-brand-brown-dark mb-2">Location</h3>
+                <address className="not-italic text-muted space-y-1">
+                  <p>360 Bench St</p>
+                  <p>Taylors Falls, MN</p>
+                  <p className="pt-2">
+                    <a href="tel:+16514410711" className="text-ink font-medium hover:text-teal transition-colors">
+                      (651) 441-0711
+                    </a>
+                  </p>
+                </address>
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-semibold text-brand-brown-dark mb-2">Hours</h3>
+                <ul className="text-sm text-muted space-y-1.5 max-w-xs">
+                  <li className="flex justify-between gap-4"><span>Monday</span><span>9:00 AM – 4:00 PM</span></li>
+                  <li className="flex justify-between gap-4"><span>Tuesday</span><span>9:00 AM – 3:00 PM</span></li>
+                  <li className="flex justify-between gap-4"><span>Wednesday</span><span className="text-muted/50">Closed</span></li>
+                  <li className="flex justify-between gap-4"><span>Thursday</span><span>9:00 AM – 4:00 PM</span></li>
+                  <li className="flex justify-between gap-4"><span>Friday</span><span>8:00 AM – 4:00 PM</span></li>
+                  <li className="flex justify-between gap-4"><span>Saturday</span><span>9:00 AM – 3:00 PM</span></li>
+                  <li className="flex justify-between gap-4"><span>Sunday</span><span>9:00 AM – 3:00 PM</span></li>
+                </ul>
+              </div>
+            </div>
+            <div className="relative h-[300px] rounded-xl overflow-hidden">
+              {/* TODO: replace with exact Google Maps embed for 360 Bench St */}
+              <iframe
+                src="https://maps.google.com/maps?q=Taylors+Falls,+MN&output=embed"
+                className="absolute inset-0 w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ripple &amp; Grind Cafe location"
+              />
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
