@@ -13,3 +13,6 @@ updates:
         update-types: ["minor", "patch"]
     open-pull-requests-limit: 5
     labels: ["dependencies"]
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
